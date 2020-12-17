@@ -1,4 +1,5 @@
-import { Box } from '@welcome-ui/box'
+import { Box } from '@welcome-ui/box';
+import Job from './components/jobs/Job';
 
 function App() {
   return (
@@ -11,7 +12,7 @@ function App() {
         alignItems="center"
         backgroundColor="nude.100"
       >
-       
+       <Job />
       </Box>
     </div>
   );

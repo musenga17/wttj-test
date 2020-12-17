@@ -5,8 +5,6 @@ import reportWebVitals from './reportWebVitals';
 import { createTheme, WuiProvider } from '@welcome-ui/core';
 
 const options = {
-  defaultFontFamily: 'Helvetica',
-  headingFontFamily: 'Georgia',
   colors: {
     primary: {
       500: '#FF0000'
