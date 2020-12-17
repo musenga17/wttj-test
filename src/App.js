@@ -1,23 +1,18 @@
-import logo from './logo.svg';
-import './App.css';
+import { Box } from '@welcome-ui/box'
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Box
+        display="flex"
+        width={1}
+        height="500px"
+        justifyContent="center"
+        alignItems="center"
+        backgroundColor="nude.100"
+      >
+       
+      </Box>
     </div>
   );
 }
