@@ -1,5 +1,5 @@
 import React from 'react';
-import PropTypes from 'prop-types';
+import data from '../../data/data.json';
 import { Box } from '@welcome-ui/box';
 import { Text } from '@welcome-ui/text';
 import { Button } from '@welcome-ui/button';
@@ -13,18 +13,15 @@ const Job = (props) => {
       backgroundColor="white"
       width="100%"
       padding="20px 10px"
+      marginBottom="10px"
     >
       <Box>
-        <Text variant="subtitle1" marginBottom="2px">Subtitle 1</Text>
-        <Text variant="subtitle2" color="dark.200">Subtitle 2</Text>
+        <Text variant="subtitle1" marginBottom="2px">{props.jobInformations.name}</Text>
+        <Text variant="subtitle2" color="dark.200">{props.jobInformations.contract_type.en} - {props.jobInformations.office.name}</Text>
       </Box>
-      <Button>See more</Button>
+      <Button>{data.offers.jobButton}</Button>
     </Box>
   );
-};
-
-Job.propTypes = {
-
 };
 
 export default Job;

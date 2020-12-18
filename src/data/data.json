@@ -1,0 +1,18 @@
+{
+    "offers": {
+        "title": "Our offers",
+        "jobButton": "See more",
+        "searchInput": {
+            "placeholder": "Your dream job?"
+        },
+        "contractTypeSelect": {
+            "placeholder": "Contract type"
+        },
+        "datePickerInput": {
+            "placeholder": "Published after"
+        },
+        "groupBySelect": {
+            "placeholder": "Group by"
+        }
+    }
+}
