@@ -8,43 +8,59 @@ import { InputText } from '@welcome-ui/input-text';
 import { Select } from '@welcome-ui/select';
 import { DatePicker } from '@welcome-ui/date-picker';
 import Job from '../jobs/Job';
+import Axios from 'axios';
+import "./Offers.scss";
 
 
 const Offers = () => {
 
   const [listOfJobs, setListOfJobs] = useState([]);
+  const [listOfContractTypes, setListOfContractTypes] = useState([]);
 
   useEffect(() => {
-    fetch("https://www.welcomekit.co/api/v1/embed?organization_reference=Pg4eV6k")
-      .then(res => res.json())
-      .then(
-        (result) => {
-          console.log("RES : ", result.jobs);
-          setListOfJobs(result.jobs);
-        },
-        // Remarque : il faut gérer les erreurs ici plutôt que dans
-        // un bloc catch() afin que nous n’avalions pas les exceptions
-        // dues à de véritables bugs dans les composants.
-        (error) => {
-
-        }
-      )
+    Axios.get("https://www.welcomekit.co/api/v1/embed?organization_reference=Pg4eV6k")
+      .then((result) => {
+        setListOfJobs(result.data.jobs);
+        getContractTypes(result.data.jobs);
+      })
+      .catch((error) => {
+        console.log(error);
+      })
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  let list = [
-    {
-      value: "Choix-1",
-      label: "YYYYYYYYYYYYYYYYYYYY"
-    },
-    {
-      value: "Choix-2",
-      label: "Choix-2"
-    },
-    {
-      value: "Choix-3",
-      label: "Choix-3"
+  /**
+   * This method determines if the array already contains an object whose the property value 'label'
+   * is equal to the searched string
+   * 
+   * @param {Array} list The list in which we will do the research
+   * @param {string} searchedString The searched string
+  */
+  const containsObjectLabel = (list, searchedString) => {
+    const condition = (element) => element.label === searchedString;
+    return list.some(condition);
+  }
+
+  /**
+   * This method gets the types of contracts in an array 
+   * without making duplicates
+   * 
+   * @param {Array} list The list in which we will do the research
+  */
+  const getContractTypes = (listOfJobs) => {
+    var listOfContractTypesTMP = [];
+    var index = 0;
+    for (const job of listOfJobs) {
+      if (!containsObjectLabel(listOfContractTypesTMP, job.contract_type.en)) {
+        listOfContractTypesTMP.push({
+          value: `contractType${index}`,
+          label: job.contract_type.en
+        });
+        index++;
+      }
     }
-  ];
+    setListOfContractTypes(listOfContractTypesTMP);
+  }
 
   return (
     <Box
@@ -56,7 +72,10 @@ const Offers = () => {
       <Text variant="h3" textAlign="center" marginBottom="50px">{data.offers.title}</Text>
       <Form
         onSubmit={() => console.log("onSubmit")}
-        initialValues={{ date: Date.now() }}
+        initialValues={{
+          date: Date.now(),
+          groupBy: "department.name"
+        }}
       >
         {() =>
           <Box
@@ -69,27 +88,28 @@ const Offers = () => {
               name="searchJob"
               component={InputText}
               placeholder={data.offers.searchInput.placeholder}
-              marginRight="10px"
+              className="inputField"
             />
             <ConnectedField
               name="contractType"
               component={Select}
               placeholder={data.offers.contractTypeSelect.placeholder}
-              options={list}
-              marginRight="10px"
+              options={listOfContractTypes}
+              isClearable
+              className="select inputField"
             />
             <ConnectedField
               name="date"
               component={DatePicker}
               placeholder={data.offers.datePickerInput.placeholder}
-              marginRight="10px"
+              className="inputField"
             />
             <ConnectedField
               name="groupBy"
               component={Select}
               placeholder={data.offers.groupBySelect.placeholder}
-              options={list}
-              marginRight="10px"
+              options={data.offers.groupBySelect.options}
+              className="select inputField"
             />
           </Box>
         }

@@ -12,7 +12,21 @@
             "placeholder": "Published after"
         },
         "groupBySelect": {
-            "placeholder": "Group by"
+            "placeholder": "Group by",
+            "options": [
+                {
+                    "value": "groupBy0",
+                    "label": "None"
+                },
+                {
+                    "value": "groupBy1",
+                    "label": "office.name"
+                },
+                {
+                    "value": "groupBy2",
+                    "label": "department.name"
+                }
+            ]
         }
     }
 }

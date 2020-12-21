@@ -1,0 +1,10 @@
+.select {
+    width: 240px;
+}
+.inputField {
+    margin-right: 10px;
+
+    &:last-child {
+        margin-right: 0;
+    }
+}
