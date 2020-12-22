@@ -1,15 +1,16 @@
 import React, { useEffect, useState } from 'react';
-import data from "../../data/data.json";
+import data from '../../data/data.json';
 import { Box } from '@welcome-ui/box';
 import { Text } from '@welcome-ui/text';
-import { Form } from "react-final-form"
+import { Form } from 'react-final-form';
 import { ConnectedField } from '@welcome-ui/connected-field';
 import { InputText } from '@welcome-ui/input-text';
 import { Select } from '@welcome-ui/select';
 import { DatePicker } from '@welcome-ui/date-picker';
 import Job from '../jobs/Job';
 import Axios from 'axios';
-import "./Offers.scss";
+import Fuse from 'fuse.js';
+import './Offers.scss';
 
 var listOfJobsDefault = [];
 var apiCalled = false;
@@ -127,10 +128,33 @@ const Offers = () => {
   };
 
   /**
+   * This method parse the results of 'fuzzy matching'
+   * 
+   * @param {Array} listOfResults The list of results for the 'fuzzy matching'
+  */
+  const parseResultsOfFuzzy = (listOfResults) => {
+    var parsedList = [];
+    for (const result of listOfResults) {
+      parsedList.push(result.item);
+    }
+    return parsedList;
+  }
+
+  /**
    * This method applies the filter for the search of jobs
   */
   const filterSearchJob = () => {
-    var listOfJobsTMP = listOfJobsDefault.filter((job) => job.name.toLowerCase().includes(searchJobValue.toLowerCase()));
+    const options = {
+      keys: ['name']
+    };
+    const fuse = new Fuse(listOfJobsDefault, options);
+    var listOfJobsTMP = [];
+    if(searchJobValue !== "") {
+      listOfJobsTMP = parseResultsOfFuzzy(fuse.search(searchJobValue));
+    }
+    else {
+      listOfJobsTMP = listOfJobsDefault;
+    }
     setListOfJobs(listOfJobsTMP);
     filterContractType(listOfJobsTMP);
   };
