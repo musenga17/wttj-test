@@ -15,15 +15,15 @@
             "placeholder": "Group by",
             "options": [
                 {
-                    "value": "groupBy0",
+                    "value": "none",
                     "label": "None"
                 },
                 {
-                    "value": "groupBy1",
+                    "value": "office.name",
                     "label": "office.name"
                 },
                 {
-                    "value": "groupBy2",
+                    "value": "department.name",
                     "label": "department.name"
                 }
             ]
