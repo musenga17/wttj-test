@@ -10,6 +10,11 @@ const Job = (props) => {
     highlightSearchTerm(props.searchTerm);
   }, [props.searchTerm]);
 
+  /**
+   * This method convert a date in a date format DD/MM/YYYY
+   * 
+   * @param {string} inputFormat The date that will be converted
+  */
   const convertDate = (inputFormat) => {
     const pad = (s) => {
       return (s < 10) ? '0' + s : s;
