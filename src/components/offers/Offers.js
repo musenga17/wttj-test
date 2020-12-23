@@ -7,6 +7,7 @@ import { ConnectedField } from '@welcome-ui/connected-field';
 import { InputText } from '@welcome-ui/input-text';
 import { Select } from '@welcome-ui/select';
 import { DatePicker } from '@welcome-ui/date-picker';
+import { Loader } from '@welcome-ui/loader';
 import Job from '../jobs/Job';
 import Axios from 'axios';
 import Fuse from 'fuse.js';
@@ -25,6 +26,7 @@ const Offers = () => {
   const [contractTypeValue, setContractTypeValue] = useState("");
   const [groupByValue, setGroupByValue] = useState("office.name");
   const [dateValue, setDateValue] = useState(null);
+  const [isLoading, setLoading] = useState(true);
 
   useEffect(() => {
     if (!apiCalled) {
@@ -41,7 +43,7 @@ const Offers = () => {
           .catch((error) => {
             console.log(error);
           });
-
+        setLoading(false);
         filterSearchJob();
       };
       fetchData();
@@ -149,7 +151,7 @@ const Offers = () => {
     };
     const fuse = new Fuse(listOfJobsDefault, options);
     var listOfJobsTMP = [];
-    if(searchJobValue !== "") {
+    if (searchJobValue !== "") {
       listOfJobsTMP = parseResultsOfFuzzy(fuse.search(searchJobValue));
     }
     else {
@@ -231,10 +233,10 @@ const Offers = () => {
 
   return (
     <Box
-      padding="50px"
-      margin="-100px auto 0"
+      padding={{ xs: "10px", xl: "50px" }}
+      margin={{ xs: "0 auto", xl: "-100px auto 0" }}
       backgroundColor="light.700"
-      maxWidth="max-content"
+      maxWidth={{ xs: "auto", xl: "max-content" }}
     >
       <Text variant="h3" textAlign="center" marginBottom="50px">{data.offers.title}</Text>
       <Form
@@ -243,7 +245,7 @@ const Offers = () => {
         {() =>
           <Box
             width="100%"
-            display="flex"
+            display={{ xs: "block", xl: "flex" }}
             justifyContent="space-between"
             marginBottom="50px"
           >
@@ -284,9 +286,16 @@ const Offers = () => {
           </Box>
         }
       </Form>
-      {listOfJobs.map((job) => (
-        <Job key={`job-${job.id}`} jobInformations={job} searchTerm={searchJobValue} />
-      ))}
+      {isLoading ?
+        <Loader color="primary.500" size={50} margin="auto" />
+        :
+        listOfJobs.length > 0 ?
+          listOfJobs.map((job) => (
+            <Job key={`job-${job.id}`} jobInformations={job} searchTerm={searchJobValue} />
+          ))
+          :
+          <Text variant="h3" textAlign="center">No results for you search</Text>
+      }
     </Box>
   );
 };

@@ -6,7 +6,7 @@ function App() {
     <div className="App">
       <Box
         width={1}
-        height="500px"
+        height={{ xs: "50px", xl: "200px" }}
         justifyContent="center"
         alignItems="center"
         backgroundColor="primary.800"

@@ -48,7 +48,7 @@ const Job = (props) => {
       padding="20px 10px"
       marginBottom="10px"
     >
-      <Box>
+      <Box maxWidth={{ xs: "200px", md: "initial" }}>
         <Text variant="subtitle1" marginBottom="2px" className="jobName">{props.jobInformations.name}</Text>
         <Text variant="subtitle2" color="dark.200" marginBottom="10px">{props.jobInformations.contract_type.en} - {props.jobInformations.office.name}</Text>
         <Text variant="subtitle2" color="orange" marginBottom="10px">Department : {props.jobInformations.department.name}</Text>

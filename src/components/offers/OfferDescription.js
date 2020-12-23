@@ -21,7 +21,7 @@ const OfferDescription = (props) => {
 
   return (
     <>
-      <Modal.Trigger as={Button} {...modal}>
+      <Modal.Trigger width={{ xs: "75px", xl: "auto" }} as={Button} {...modal}>
         {data.offers.jobButton}
       </Modal.Trigger>
       <Modal {...modal} ariaLabel="example">
