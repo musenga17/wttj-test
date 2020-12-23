@@ -24,7 +24,7 @@ const Offers = () => {
   const [listOfContractTypes, setListOfContractTypes] = useState([]);
   const [searchJobValue, setSearchJobValue] = useState("");
   const [contractTypeValue, setContractTypeValue] = useState("");
-  const [groupByValue, setGroupByValue] = useState("office.name");
+  const [groupByValue, setGroupByValue] = useState("department.name");
   const [dateValue, setDateValue] = useState(null);
   const [isLoading, setLoading] = useState(true);
 
