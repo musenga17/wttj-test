@@ -130,19 +130,6 @@ const Offers = () => {
   };
 
   /**
-   * This method parse the results of 'fuzzy matching'
-   * 
-   * @param {Array} listOfResults The list of results for the 'fuzzy matching'
-  */
-  const parseResultsOfFuzzy = (listOfResults) => {
-    var parsedList = [];
-    for (const result of listOfResults) {
-      parsedList.push(result.item);
-    }
-    return parsedList;
-  }
-
-  /**
    * This method applies the filter for the search of jobs
   */
   const filterSearchJob = () => {
@@ -152,7 +139,8 @@ const Offers = () => {
     const fuse = new Fuse(listOfJobsDefault, options);
     var listOfJobsTMP = [];
     if (searchJobValue !== "") {
-      listOfJobsTMP = parseResultsOfFuzzy(fuse.search(searchJobValue));
+      const resultsOfFuzzy = fuse.search(searchJobValue);
+      listOfJobsTMP = resultsOfFuzzy.map((result) => result.item);
     }
     else {
       listOfJobsTMP = listOfJobsDefault;
