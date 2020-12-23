@@ -32,3 +32,5 @@ Ajout de fichiers SCSS :
     J'ai préféré ajouter 2 petits fichiers SCSS 'OfferDescription.scss' et 'Offers.scss' comme il fallait que je cible quelques propriétés CSS spécifiques
     de plusieurs de vos composants @welcome-ui (en ajoutant des classes CSS) comme j'avais des soucis d'affichage et je n'avais pas trouvé d'autres manières de le faire.
     Si il y a d'autres manières, alors je suis preneur ! :)
+
+PS : AVOIR UNE VERSION DE NODE.JS > 10.0 sinon il y aura des problèmes au niveau des dépendances !
