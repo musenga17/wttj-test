@@ -134,7 +134,23 @@ const Offers = () => {
   */
   const filterSearchJob = () => {
     const options = {
-      keys: ['name']
+      keys: [
+        {
+          name: 'name',
+          weight: 0.7
+        },
+        {
+          name: 'description',
+          weight: 0.15
+        },
+        {
+          name: 'profile',
+          weight: 0.15
+        },
+      ],
+      includeScore: true,
+      ignoreLocation: true,
+      threshold: 0.2
     };
     const fuse = new Fuse(listOfJobsDefault, options);
     var listOfJobsTMP = [];
@@ -241,6 +257,7 @@ const Offers = () => {
               name="searchJob"
               component={InputText}
               placeholder={data.offers.searchInput.placeholder}
+              isClearable
               className="inputField"
               onChange={(e) => handleSearchChange(e)}
               value={searchJobValue}
