@@ -12,6 +12,7 @@
     "@welcome-ui/core": "^2.8.1",
     "@welcome-ui/date-picker": "^2.6.3",
     "@welcome-ui/input-text": "^2.6.1",
+    "@welcome-ui/loader": "^2.0.2",
     "@welcome-ui/modal": "^2.6.1",
     "@welcome-ui/select": "^2.6.1",
     "@welcome-ui/system": "^2.0.2",
