@@ -3,11 +3,14 @@ import { Box } from '@welcome-ui/box';
 import { Text } from '@welcome-ui/text';
 import JobInformation from '../informations/JobInformation';
 import Mark from 'mark.js';
+import PropTypes from 'prop-types';
 
 const Job = (props) => {
 
   useEffect(() => {
-    highlightSearchTerm(props.searchTerm);
+    if(props.searchTerm) {
+      highlightSearchTerm(props.searchTerm);
+    }
   }, [props.searchTerm]);
 
   /**
@@ -58,5 +61,10 @@ const Job = (props) => {
     </Box>
   );
 };
+
+Job.propTypes = {
+  jobInformations: PropTypes.object.isRequired,
+  searchTerm: PropTypes.string
+}
 
 export default Job;

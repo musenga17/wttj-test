@@ -1,6 +1,7 @@
 import React from 'react';
 import { Box } from '@welcome-ui/box';
 import { Text } from '@welcome-ui/text';
+import PropTypes from 'prop-types';
 
 const InformationPart = (props) => {
   return (
@@ -11,6 +12,10 @@ const InformationPart = (props) => {
       </Box>
     </Box>
   );
+};
+
+InformationPart.propTypes = {
+  title: PropTypes.string.isRequired
 };
 
 export default InformationPart;

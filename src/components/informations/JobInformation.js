@@ -6,6 +6,7 @@ import data from '../../data/data.json';
 import parse from 'html-react-parser';
 import './JobInformation.scss';
 import InformationPart from './parts/InformationPart';
+import PropTypes from 'prop-types';
 
 const JobInformation = (props) => {
   const modal = useModalState();
@@ -48,5 +49,9 @@ const JobInformation = (props) => {
     </>
   );
 };
+
+JobInformation.propTypes = {
+  jobInformations: PropTypes.object.isRequired
+}
 
 export default JobInformation;
