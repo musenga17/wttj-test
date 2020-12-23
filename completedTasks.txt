@@ -1,0 +1,34 @@
+Ce qui a été fait :
+
+    1) La recherche 'Your dream job?' qui se fait par rapport au job.name, job.description et au job.profile
+    2) Le terme recherchée est surligné en jaune dans les résultats (dans le nom du job) -> job.name
+    3) Le "fuzzy matching" a été mis en place dans la recherche sur le nom du job -> job.name
+    4) Le filtre 'Contract type' sur le type de contrat -> job.contract_type.en
+    5) Le filtre 'Publshed after' qui va afficher les jobs qui ont été publiés APRÈS (jour + 1) la date sélectionnée -> job.published_at
+    6) Le select 'Group By' qui groupe les jobs selon l'attribut sélectionnée 
+    7) L'affichage des jobs avec les informations :
+        - job.name
+        - job.contract_type.en
+        - job.office.name
+        - job.department.name (en orange)
+        - job.published_at (en vert)
+    
+    8) Le bouton 'See more' qui affiche une modale avec les différentes informations du job en question :
+        - job.name
+        - job.contract_type.en
+        - job.description
+        - job.profile
+        - job.address, job.zip_code et job.district
+
+    9) Le bouton 'Apply' qui accède au lien donné par website_reference "wttj_fr"
+
+
+Ce qui n'a pas été fait :
+
+    1) Les tests basiques. J'ai préféré ne pas les faire comme j'avais pas mal d'erreurs lorsque je lance JEST.
+        Du coup, j'ai enlevé ce que j'avais fait, j'ai préféré me concentrer sur l'essentiel ^^
+
+Ajout de fichiers SCSS :
+    J'ai préféré ajouter 2 petits fichiers SCSS 'OfferDescription.scss' et 'Offers.scss' comme il fallait que je cible quelques propriétés CSS spécifiques
+    de plusieurs de vos composants @welcome-ui (en ajoutant des classes CSS) comme j'avais des soucis d'affichage et je n'avais pas trouvé d'autres manières de le faire.
+    Si il y a d'autres manières, alors je suis preneur ! :)
