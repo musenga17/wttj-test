@@ -4,10 +4,10 @@ import { Button } from '@welcome-ui/button';
 import { Box } from '@welcome-ui/box';
 import data from '../../data/data.json';
 import parse from 'html-react-parser';
-import "./OfferDescription.scss";
-import DescriptionPart from './descriptionParts/DescriptionPart';
+import './JobInformation.scss';
+import InformationPart from './parts/InformationPart';
 
-const OfferDescription = (props) => {
+const JobInformation = (props) => {
   const modal = useModalState();
 
   /**
@@ -24,20 +24,20 @@ const OfferDescription = (props) => {
       <Modal.Trigger width={{ xs: "75px", xl: "auto" }} as={Button} {...modal}>
         {data.offers.jobButton}
       </Modal.Trigger>
-      <Modal {...modal} ariaLabel="example" className="modalInformation">
+      <Modal {...modal} ariaLabel="example" className="jobInformation">
         <Modal.Title marginBottom="4px" display="block">
           {props.jobInformations.name} - <span style={{ color: "green" }}>{props.jobInformations.contract_type.en}</span>
         </Modal.Title>
         <Modal.Content>
-          <DescriptionPart title="Job description">{parse(props.jobInformations.description)}</DescriptionPart>
-          <DescriptionPart title="Profile">{parse(props.jobInformations.profile)}</DescriptionPart>
-          <DescriptionPart title="Location">
+          <InformationPart title="Job description">{parse(props.jobInformations.description)}</InformationPart>
+          <InformationPart title="Profile">{parse(props.jobInformations.profile)}</InformationPart>
+          <InformationPart title="Location">
             <p>
               {props.jobInformations.office.address}<br />
               {props.jobInformations.office.zip_code}<br />
               {props.jobInformations.office.district}
             </p>
-          </DescriptionPart>
+          </InformationPart>
         </Modal.Content>
         <Modal.Footer>
           <Box width={1} display="flex" justifyContent="center">
@@ -49,4 +49,4 @@ const OfferDescription = (props) => {
   );
 };
 
-export default OfferDescription;
+export default JobInformation;

@@ -1,8 +1,8 @@
 import React, { useEffect } from 'react';
 import { Box } from '@welcome-ui/box';
 import { Text } from '@welcome-ui/text';
-import OfferDescription from '../offers/OfferDescription';
-import Mark from "mark.js";
+import JobInformation from '../informations/JobInformation';
+import Mark from 'mark.js';
 
 const Job = (props) => {
 
@@ -54,7 +54,7 @@ const Job = (props) => {
         <Text variant="subtitle2" color="orange" marginBottom="10px">Department : {props.jobInformations.department.name}</Text>
         <Text variant="subtitle2" color="green">Published on {convertDate(props.jobInformations.published_at)}</Text>
       </Box>
-      <OfferDescription jobInformations={props.jobInformations} />
+      <JobInformation jobInformations={props.jobInformations} />
     </Box>
   );
 };

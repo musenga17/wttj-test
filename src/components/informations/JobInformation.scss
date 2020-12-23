@@ -1,4 +1,4 @@
-.descriptionPartText {
+.informationPartText {
   p,
   h2,
   h3 {
@@ -28,12 +28,16 @@
   }
 }
 
-.modalInformation {
+.jobInformation {
   &[data-dialog-ref] {
     height: auto;
   }
 
   &[aria-modal] {
-    height: 660px;
+    height: 800px;
+
+    @media only screen and (max-width: 1024px) {
+      height: 100%;
+    }
   }
 }
