@@ -28,6 +28,12 @@
   }
 }
 
-.elTJBb {
-  height: 660px;
+.modalInformation {
+  &[data-dialog-ref] {
+    height: auto;
+  }
+
+  &[aria-modal] {
+    height: 660px;
+  }
 }

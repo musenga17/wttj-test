@@ -24,7 +24,7 @@ const OfferDescription = (props) => {
       <Modal.Trigger width={{ xs: "75px", xl: "auto" }} as={Button} {...modal}>
         {data.offers.jobButton}
       </Modal.Trigger>
-      <Modal {...modal} ariaLabel="example">
+      <Modal {...modal} ariaLabel="example" className="modalInformation">
         <Modal.Title marginBottom="4px" display="block">
           {props.jobInformations.name} - <span style={{ color: "green" }}>{props.jobInformations.contract_type.en}</span>
         </Modal.Title>
