@@ -8,9 +8,7 @@ import PropTypes from 'prop-types';
 const Job = (props) => {
 
   useEffect(() => {
-    if(props.searchTerm) {
-      highlightSearchTerm(props.searchTerm);
-    }
+    highlightSearchTerm(props.searchTerm);
   }, [props.searchTerm]);
 
   /**
@@ -64,7 +62,7 @@ const Job = (props) => {
 
 Job.propTypes = {
   jobInformations: PropTypes.object.isRequired,
-  searchTerm: PropTypes.string
+  searchTerm: PropTypes.string.isRequired
 }
 
 export default Job;
