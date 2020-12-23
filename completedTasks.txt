@@ -5,7 +5,7 @@ Ce qui a été fait :
     3) Le "fuzzy matching" a été mis en place dans la recherche sur le nom du job -> job.name
     4) Le filtre 'Contract type' sur le type de contrat -> job.contract_type.en
     5) Le filtre 'Publshed after' qui va afficher les jobs qui ont été publiés APRÈS (jour + 1) la date sélectionnée -> job.published_at
-    6) Le select 'Group By' qui groupe les jobs selon l'attribut sélectionnée 
+    6) Le select 'Group By' qui groupe les jobs selon l'attribut sélectionnée (avec comme attribut par défaut sélectionné : department.name)
     7) L'affichage des jobs avec les informations :
         - job.name
         - job.contract_type.en
