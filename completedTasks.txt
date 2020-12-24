@@ -1,10 +1,12 @@
 Ce qui a été fait :
 
     1) La recherche 'Your dream job?' qui se fait par rapport au job.name, job.description et au job.profile
-    2) Le terme recherchée est surligné en jaune dans les résultats (dans le nom du job) -> job.name
-    3) Le "fuzzy matching" a été mis en place dans la recherche sur le nom du job -> job.name
+    2) Le "fuzzy matching" a aussi été mis en place dans la recherche par rapport au job.name, job.description et au job.profile
+    3) Le terme recherchée est surligné en jaune dans les résultats (dans le nom du job) -> job.name
     4) Le filtre 'Contract type' sur le type de contrat -> job.contract_type.en
     5) Le filtre 'Publshed after' qui va afficher les jobs qui ont été publiés APRÈS (jour + 1) la date sélectionnée -> job.published_at
+        Exemple : je sélectionne le 1/12/2020 alors ça va m'afficher tous les jobs publiés à partir du 2/12/2020
+        
     6) Le select 'Group By' qui groupe les jobs selon l'attribut sélectionnée (avec comme attribut par défaut sélectionné : department.name)
     7) L'affichage des jobs avec les informations :
         - job.name

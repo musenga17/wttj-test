@@ -23,7 +23,7 @@ const JobInformation = (props) => {
   return (
     <>
       <Modal.Trigger width={{ xs: "75px", xl: "auto" }} as={Button} {...modal}>
-        {data.offers.jobButton}
+        {data.job.seeMoreButton}
       </Modal.Trigger>
       <Modal {...modal} ariaLabel="example" className="jobInformation">
         <Modal.Title marginBottom="4px" display="block">
@@ -42,7 +42,7 @@ const JobInformation = (props) => {
         </Modal.Content>
         <Modal.Footer>
           <Box width={1} display="flex" justifyContent="center">
-            <Button variant="primary" as="a" href={getJobUrl()} target="_blank">Apply</Button>
+            <Button variant="primary" as="a" href={getJobUrl()} target="_blank">{data.job.applyButton}</Button>
           </Box>
         </Modal.Footer>
       </Modal>

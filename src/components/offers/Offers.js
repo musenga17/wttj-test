@@ -24,7 +24,7 @@ const Offers = () => {
   const [listOfContractTypes, setListOfContractTypes] = useState([]);
   const [searchJobValue, setSearchJobValue] = useState("");
   const [contractTypeValue, setContractTypeValue] = useState("");
-  const [groupByValue, setGroupByValue] = useState("department.name");
+  const [groupByValue, setGroupByValue] = useState(data.offers.groupBySelect.options[2].value);
   const [dateValue, setDateValue] = useState(null);
   const [isLoading, setLoading] = useState(true);
 
@@ -299,7 +299,7 @@ const Offers = () => {
             <Job key={`job-${job.id}`} jobInformations={job} searchTerm={searchJobValue} />
           ))
           :
-          <Text variant="h3" textAlign="center">No results for you search</Text>
+          <Text variant="h3" textAlign="center">{data.offers.noResults}</Text>
       }
     </Box>
   );

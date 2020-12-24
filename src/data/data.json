@@ -27,6 +27,11 @@
                     "label": "department.name"
                 }
             ]
-        }
+        },
+        "noResults": "No results for you search"
+    },
+    "job": {
+        "seeMoreButton": "See more",
+        "applyButton": "Apply"
     }
 }
